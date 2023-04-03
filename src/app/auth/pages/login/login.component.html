@@ -1,0 +1,96 @@
+<section class="sesion vh-100 ">
+  <div class="container card shadow h-custom mt-5 py-5">
+    <div class=" row d-flex justify-content-center align-items-center">
+      
+      <div class=" col-md-9 col-lg-6 col-xl-5">
+        <img src="../../../../assets/Analytics team_Flatline.png" class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 ">
+        
+        <form [formGroup]="form" (ngSubmit)="login()">
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="form3Example3" class="form-control form-control-lg"
+              placeholder="Ingrese una dirección de correo" formControlName="email" />
+            <label class="form-label" for="form3Example3">Correo electrónico</label>
+            <div *ngIf="form.get('email')?.hasError('required') && form.pristine === false" style="color: red;">email
+              requerido</div>
+            <div *ngIf="form.get('email')?.hasError('email') && form.pristine === false" style="color: red;">Email
+              invalido</div>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <input type="password" id="form3Example4" class="form-control form-control-lg"
+              placeholder="Ingrese una contraseña" formControlName="password" />
+            <label class="form-label" for="form3Example4">Contraseña</label>
+            <div *ngIf="form.get('password')?.hasError('required') && form.pristine === false" style="color: red;">
+              Contraseña requerida</div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <a href="" data-bs-toggle="modal" data-bs-target="#resetpass" class=" cursor-pointer text-body">Olvididaste tu contraseña?</a>
+          </div>
+
+         
+          <!-- Modal -->
+          <div class="modal fade" id="resetpass" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header text-bg-primary">
+                  <h2 class="modal-title text-bg-primary" id="exampleModalLabel">
+                    <i class="bi bi-bootstrap-reboot"></i> Recuperar contraseña
+                  </h2>
+                  <button type="button" class="btn-close btn-primary" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  
+                <input type="email" class="form-control"
+                placeholder="Ingrese correo de recuperación"
+                 [formControl]="emailpass" required>
+              </div>
+                               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" (click)="onReset()" data-bs-dismiss="modal">Enviar</button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button type="submit" class="btn btn-primary btn-lg" [disabled]="!form.valid"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Inciar sesión</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+    </div>
+
+  <div class="fixed-bottom bg-primary py-4 px-4 px-xl-5 d-flex flex-column flex-md-row text-center text-md-start justify-content-between">
+    <!-- Left -->
+    <div class="text-white mb-3 mb-md-0">
+      Copyright © 2023.
+      SofkaU All rights reserved.
+    </div>
+    <!-- Left -->
+  
+    <!-- Right -->
+    <div>
+      <a href="https://www.youtube.com/channel/UCa6j2dHRleqQciUHLM1FTRw/featured" class="text-white me-4">
+        <i class="bi bi-youtube"></i>
+      </a>
+      <a href="https://www.instagram.com/sofka_technologies/" class="text-white me-4">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/company/sofka-technologies/" class="text-white">
+        <i class="bi bi-linkedin"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </div>
+  
+</section>

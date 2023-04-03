@@ -1,0 +1,187 @@
+
+<div class="w-75 mx-auto grid items-center">
+  <div class="mx-auto  text-center mb-3">
+    <h2 class="fw-normal">{{radar?.name}}</h2>
+        <button class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+        (click)="initForm()">Añadir area de conocimiento</button>
+        <!-- Scrollable modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Ingrese una nueva area de conocimiento</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form
+              [formGroup]="formAddknowledgeArea"
+              (ngSubmit)="onSubmitformAddknowledgeArea()"
+              id="frmRadar">
+              <div class="modal-body flex flex-col">
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Area de conocimiento</mat-label>
+                  <input matInput type="text" formControlName="name">
+                  <small *ngIf="nameNoValido" class="text-danger">
+                    Ingrese minimo 4 letras
+                  </small>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Descriptor de area</mat-label>
+                  <input matInput type="text" formControlName="descriptor">
+                  <small *ngIf="descriptorNoValido" class="text-danger">
+                    Ingrese minimo 3 letras
+                  </small>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Factual</mat-label>
+                  <input matInput type="number" formControlName="factual">
+                  <small *ngIf="factualNoValido" class="text-danger">
+                    Ingrese una nota de 0 a 5
+                  </small>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Conceptual</mat-label>
+                  <input matInput type="number" formControlName="conceptual">
+                  <small *ngIf="conceptualNoValido" class="text-danger">
+                    Ingrese una nota de 0 a 5
+                  </small>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Porcentual</mat-label>
+                  <input matInput type="number" formControlName="procedural">
+                  <small *ngIf="proceduralNoValido" class="text-danger">
+                    Ingrese una nota de 0 a 5
+                  </small>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Metacognitivo</mat-label>
+                  <input matInput type="number" formControlName="metacognitive">
+                  <small *ngIf="metacognitiveNoValido" class="text-danger">
+                    Ingrese una nota de 0 a 5
+                  </small>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Nivel de apropiación</mat-label>
+                  <input matInput  type="number" formControlName="appropriationLevel">
+                  <small *ngIf="appropriationLevelNoValido" class="text-danger">
+                    Ingrese una nota de 0 a 5
+                  </small>
+                </mat-form-field>
+
+              </div>
+            </form>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button form="frmRadar" type="submit" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- knowledgeArea Column -->
+    <ng-container matColumnDef="knowledgeArea">
+      <th mat-header-cell *matHeaderCellDef>Area de conocimiento</th>
+      <td mat-cell *matCellDef="let data">{{ data.name }}</td>
+    </ng-container>
+
+    <!-- descriptor Column -->
+    <ng-container matColumnDef="descriptor">
+      <th mat-header-cell *matHeaderCellDef>Descriptor</th>
+      <td mat-cell *matCellDef="let data">{{ data.descriptor }}</td>
+    </ng-container>
+
+    <!-- factual Column -->
+    <ng-container matColumnDef="factual">
+      <th mat-header-cell *matHeaderCellDef>factual</th>
+      <td mat-cell *matCellDef="let data">
+        <span appSemaforizacion [score]="data.factual">
+          {{ data.factual }}
+        </span>
+      </td>
+    </ng-container>
+
+
+    <!-- conceptual Column -->
+    <ng-container matColumnDef="conceptual">
+      <th mat-header-cell *matHeaderCellDef>conceptual</th>
+      <td mat-cell *matCellDef="let data">
+        <span appSemaforizacion [score]="data.conceptual">
+          {{ data.conceptual }}
+        </span>
+      </td>
+    </ng-container>
+
+    <!-- procedural Column -->
+    <ng-container matColumnDef="procedural">
+      <th mat-header-cell *matHeaderCellDef>Porcentual</th>
+      <td mat-cell *matCellDef="let data">
+        <span appSemaforizacion [score]="data.procedural">
+          {{ data.procedural }}
+        </span>
+      </td>
+    </ng-container>
+
+    <!-- metacognitive Column -->
+    <ng-container matColumnDef="metacognitive">
+      <th mat-header-cell *matHeaderCellDef>Metacognitivo</th>
+      <td mat-cell *matCellDef="let data">
+        <span appSemaforizacion [score]="data.metacognitive">
+          {{ data.metacognitive }}
+        </span>
+      </td>
+    </ng-container>
+
+    <!-- appropriationLevel Column -->
+    <ng-container matColumnDef="appropriationLevel">
+      <th mat-header-cell *matHeaderCellDef>Nivel de apropiación</th>
+      <td mat-cell *matCellDef="let data">
+        <span appSemaforizacion [score]="data.appropriationLevel">
+          {{ data.appropriationLevel }}
+        </span>
+      </td>
+    </ng-container>
+
+    <!-- Acciones -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td
+        mat-cell
+        *matCellDef="let data"
+      >
+        <a
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+        (click)="selectknowledgeArea(data)" >
+          <i
+          class="fa fa-pencil fa-md action-table me-3"
+          matTooltip="Editar"
+          >
+        </i>
+        </a>
+        <a
+        (click)="deleteKnowledgeArea(data)">
+        <i
+          class="fa fa-trash fa-md text-[#DB2828]"
+          matTooltip="Eliminar"
+        >
+        </i>
+      </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+

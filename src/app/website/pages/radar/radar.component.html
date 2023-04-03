@@ -1,0 +1,60 @@
+<div class="container py-3">
+  <header>
+
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal">Bienvenido a la sección de Radares</h1>
+      <p class="fs-5 text-body-secondary">Aquí podra ver todos los radares disponibles y/o crear uno nuevo</p>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Crear radar</button>
+      <!-- Scrollable modal -->
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Ingrese el nombre del radar</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body flex flex-col">
+              <form
+              [formGroup]="formCreateRadar"
+              (ngSubmit)="onSubmitformCreateRadar()"
+              id="frmRadar">
+              <mat-form-field appearance="fill">
+                <mat-label>Nombre del Radar</mat-label>
+                <input type="text" formControlName="name" matInput>
+              </mat-form-field>
+              <small *ngIf="nameNoValido" class="text-danger">
+                Ingrese minimo 4 letras
+              </small>
+            </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button form="frmRadar" type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center justify-content-center">
+      <div class="col" *ngFor="let radar of radarList">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h1 class="my-0 card-title pricing-card-title">{{ radar.name }}</h1>
+          </div>
+          <div class="card-body">
+            <button
+            type="button"
+            class="w-100 btn btn-lg btn-outline-primary"
+            [routerLink]= "['../radar-detail', radar.name]">
+            Ver más
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+

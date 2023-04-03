@@ -1,0 +1,99 @@
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active background-default">
+        <img class="h-100 ms-5"  src="https://ik.imagekit.io/vpvzuhxi3/sofkau/chica-banner-_1__FyBXgHR1Xt.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1654868729280" alt="">
+
+        <div class="container" >
+          <div class="carousel-caption text-center" style="margin-bottom: 200px">
+            <span class="fs-1 lh-1" style="color: #ff7e06; font-weight: 500;">CUIDAMOS</span>
+            <br>
+            <span class="fs-1 lh-1" style="color: white; font-weight: 500;">nuestro entorno</span>
+            <br>
+            <span  class="fs-1 lh-1" style="color: #ff7e06; font-weight: 500;">MULTIPLICANDO</span>
+            <br>
+            <span  class="fs-1 lh-1" style="color: white; font-weight: 500;">experiencias exitosas.</span>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item background-sofkau">
+
+        <div class="container">
+          <div class="carousel-caption" style="margin-bottom: 200px">
+            <span class="fs-1 lh-1" style="color: #ff7e06; font-weight: 500;">DETRÁS DE</span>
+            <br>
+            <span class="fs-1 lh-1" style="color: white; font-weight: 500;">cada producto</span>
+            <br>
+            <span  class="fs-1 lh-1" style="color: #ff7e06; font-weight: 500;">HAY PERSONAS</span>
+            <br>
+            <span  class="fs-1 lh-1" style="color: white; font-weight: 500;">comprometidas.</span>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item background-default">
+        <img class="h-100 ms-5"  src="https://sofkau.com/wp-content/uploads/2022/02/2foto-banner-2.png" alt="">
+
+        <div class="container">
+          <div class="carousel-caption text-center" style="margin-bottom: 200px">
+            <span class="fs-1 lh-1" style="color: #ff7e06; font-weight: 500;">GENERAMOS</span>
+            <br>
+            <span class="fs-1 lh-1" style="color: white; font-weight: 500;">un gran impacto</span>
+            <br>
+            <span  class="fs-1 lh-1" style="color: #ff7e06; font-weight: 500;">EN NUESTRO ENTORNO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing container-customer items-center">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row  justify-content-center align-items-center">
+      <div class="col-lg-4 flex flex-col items-center" *ngIf="isAdmin">
+        <img class="w-50" src="../../../../assets/User Group_Monochromatic.png" alt="">
+
+        <h2 class="fw-normal">Usuarios</h2>
+        <p>Aquí puedes registrar usuarios nuevos y obtener la lista de todos los creados hasta el momento.</p>
+        <p><a class="btn btn-secondary" routerLink='../user'>Ver más &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4 flex flex-col items-center" *ngIf="isAdmin">
+        <img class="w-50" src="../../../../assets/Data analytics _Monochromatic.png" alt="">
+
+        <h2 class="fw-normal">Radar</h2>
+        <p>Aquí puedes crear radares y obtener los radares diseñados para el manejo de evaluación en las diferentes ligas.</p>
+        <p><a class="btn btn-secondary" routerLink='../radar'>Ver más &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4 flex flex-col items-center">
+        <img class="w-50" src="../../../../assets/Data processing _Monochromatic.png" alt="">
+
+        <h2 class="fw-normal">Promedio</h2>
+        <p>Aquí podras observar los promedios de las diferentes ligas de entrenamiento.</p>
+        <p><a class="btn btn-secondary" routerLink='../average'>Ver más &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+    <hr class="featurette-divider">
+
+
+
+  </div><!-- /.container -->
+

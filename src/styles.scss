@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(././app/styles/reset.scss);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+  // estilos puntuacion en la tabla de areas de aprendizajes
+  .status {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 64px;
+    height: 21px;
+    border-radius: 10px;
+    font-weight: 600;
+
+    &.low {
+        background: #29740B;
+        color: black;
+    }
+    &.half {
+        background: #f5dd0a;
+        color: black;
+    }
+    &.high {
+        background: #F28C02;
+        color: black;
+    }
+    &.danger {
+        background: #AD0808;
+        color: black;
+    }
+  }

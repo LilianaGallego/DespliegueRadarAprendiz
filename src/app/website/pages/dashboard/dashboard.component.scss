@@ -1,0 +1,29 @@
+::ng-deep {
+    .container-customer {
+      margin-top: 60px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: auto;
+      padding-right: auto;
+    }
+    .col-lg-4 {
+      text-align: center;
+    }
+
+    .position-absolute{
+      // bottom: 200px;
+    }
+
+}
+
+.background-sofkau{
+  background-image: url(https://ik.imagekit.io/lvh0tltbeph/SofkaU/banner_training_chicos_tmkvk0Uqi.png?ik-sdk-version=javascript-1.4.3&updatedAt=1644889888011);
+background-size: cover;
+height: 500px;
+}
+.background-default{
+  background-image: url(https://ik.imagekit.io/lvh0tltbeph/SofkaU/Banner_1_general_Y54infMRj.png?ik-sdk-version=javascript-1.4.3&updatedAt=1644626342432);
+  background-position: center center;
+  background-size: cover;
+  height: 500px;
+}
